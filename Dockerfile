@@ -5,8 +5,11 @@ FROM ubuntu:20.04
 # Download and install dependency
 
 RUN apt-get update
-RUN apt-get install python
+RUN apt-get update && apt-get install -y python python-dev python-pip \
+    libxft-dev libfreetype6 libfreetype6-dev
+RUN pip install numpy
+RUN pip install matplotlib
 
 # What to do when image starts as container
-WORKDIR “/”
-CMD ["redis-server"]
+WORKDIR $DIRPATH
+CMD ["rand_plot.py"]
