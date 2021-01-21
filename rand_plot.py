@@ -1,4 +1,6 @@
 import random
+import matplotlib
+matplotlib.use('TKAgg')
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -6,6 +8,7 @@ import matplotlib.pyplot as plt
 numbers = 10
 x = [random.randint(0, 100) for i in range(numbers)]
 y = range(1, 11)
+print(y)
 
 # Plotting
 plt.figure()

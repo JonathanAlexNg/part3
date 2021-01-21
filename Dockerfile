@@ -1,15 +1,15 @@
-# Existing docker image as base
 
+# Existing docker image as base
 FROM ubuntu:20.04
 
+
 # Download and install dependency
-
 RUN apt-get update
-RUN apt-get update && apt-get install -y python python-dev python-pip \
-    libxft-dev libfreetype6 libfreetype6-dev
-RUN pip install numpy
-RUN pip install matplotlib
+RUN apt-get update && apt-get install -y python3 python3-matplotlib python3-numpy
+RUN apt-get install python3-tk
 
-# What to do when image starts as container
-WORKDIR $DIRPATH
-CMD ["rand_plot.py"]
+
+WORKDIR /workspace/repo
+COPY rand_plot.py ./
+
+CMD ["python3", "rand_plot.py"]
